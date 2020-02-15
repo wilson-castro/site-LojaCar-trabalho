@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8" />
+    <title>LojaCar</title>
+  
+    <link href="Css/Home.css" rel="stylesheet" type="text/css"/>
+        <script>   
+            function Img(img) {
+                var end = img;
+                var n1 = parseFloat(document.getElementById("preco").innerHTML);
+                document.getElementById("imagem").innerHTML = "<img src=\"img/"+end+".jpg \" widht=100 height = 150>";
+                if (end === "fiat") {
+                    n1 = n1 <= 11920 ? n1+ 34200 : 34200;
+                }
+                else if(end == "ford"){
+                    n1 = n1 <= 11920 ? n1+ 45590 : 45590;
+                }
+                else if(end == "chev"){
+                    n1 = n1 <= 11920 ? n1+ 38990 : 38990;
+                }
+                else if(end == "ren"){
+                    n1 = n1 <= 11920 ? n1+ 30990 : 30990;
+                }
+                function preco(){
+                    return n1;
+                }
+                document.getElementById("preco").innerHTML = n1;
+            }
+            function checkAl(){
+                var n1 = parseFloat(document.getElementById("preco").innerHTML);
+                if(document.getElementById("alarme").checked)
+                    n1 += 300;
+                else
+                    n1 -= 300;
+                document.getElementById("preco").innerHTML = n1;
+            }
+            function checkF(){
+                var n1 = parseFloat(document.getElementById("preco").innerHTML);
+                if(document.getElementById("fume").checked)
+                    n1 += 120;
+                else
+                    n1 -= 120;
+                document.getElementById("preco").innerHTML = n1;
+            }
+            function checkA(){
+                var n1 = parseFloat(document.getElementById("preco").innerHTML);
+                if(document.getElementById("arc").checked)
+                    n1 += 3200;
+                else
+                    n1 -= 3200;
+                document.getElementById("preco").innerHTML = n1;
+            }
+            function checkK(){
+                var n1 = parseFloat(document.getElementById("preco").innerHTML);
+                if(document.getElementById("kit").checked)
+                    n1 += 2300;
+                else
+                    n1 -= 2300;
+                document.getElementById("preco").innerHTML = n1;
+            }
+            function checkM(){
+                var n1 = parseFloat(document.getElementById("preco").innerHTML);        
+                if(document.getElementById("mot").checked)
+                    n1 += 6000;
+                else
+                    n1 -= 6000;
+                document.getElementById("preco").innerHTML = n1;
+            }
+
+          function Limpar() {
+            var n1 = parseFloat(document.getElementById("preco").innerHTML);
+            document.getElementById("preco").innerHTML = 0;
+            
+          }
+
+        </script>
+    </head>
+    <body>
+
+    <a name="ancora"></a>
+
+
+    <div id="nome_site">
+      <h1 ><B>LojaCar</B></h1>
+    </div><br>
+    <br>
+    
+    <br>
+
+    <fieldset>
+    <form action="php.php" method="post">
+    <br>
+    <h1 style="padding-left: 60px;tnameext-align: left;">&#171;Modelos&#187;</h1>
+    <br><div style="padding-left: 60px;tnameext-align: left;" >
+            <input type="radio" name="carro" onclick="Img(this.value)" required="" value="fiat"> Fiat Mobi Drive<br>
+            <input type="radio" name="carro" onclick="Img(this.value)" required="" value="ford"> Ford Ka<br>
+            <input type="radio" name="carro" onclick="Img(this.value)" required="" value="chev"> Chevrolet Onix Joy<br>
+            <input type="radio" name="carro" onclick="Img(this.value)" required="" value="ren"> Renault Kwid<br>
+            <div id="imagem"></div>
+            <br><br>
+            <h1>&#171;Adicionais&#187;</h1><br>
+            <input type="checkbox" name = "ac[]" onclick ="checkAl()" id = "alarme" value = "Alarme"> Alarme (R$300)
+            <br>
+            <input type="checkbox" name = "ac[]" onclick ="checkF()" id = "fume" value = "Fumê"> Fumê(R$120)
+            <br>
+            <input type="checkbox" name = "ac[]" onclick ="checkA()" id = "arc" value = "Ar Condicionado"> Ar Condicionado(R$3200)
+            <br>
+            <input type="checkbox" name = "ac[]" onclick ="checkK()" id = "kit" value = "Kit Multimídia"> Kit Multimídia(R$2300)
+            <br>
+            <input type="checkbox" name = "ac[]" onclick ="checkM()" id = "mot" value = "Motor" > Motor 1.5(R$6000)
+            <br>
+            <br>
+            <br>
+            <h3>Preço: R$ <div id = "preco">0</div></h3>
+            <br></div>
+            <center>
+            <input type="submit" value="Enviar" class="botao">&nbsp
+            <input type="reset" value="Limpar" class="botao" onclick="Limpar()">
+            </center>
+
+            </div>  
+        </form>
+    
+        </fieldset>
+        <br>
+        <br>
+        </form>  
+
+        <div class="rodape">
+            <p>Autoria do site : Lucas Ferreira.
+            <p>Todos os direitos reservado 09/05/2018</p>
+         </div>
+     
+
+    </body>
+</html>
